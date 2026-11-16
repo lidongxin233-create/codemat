@@ -30,26 +30,20 @@
 
 ### 2.1 本地已就绪
 
-项目 `codemate/` 已完成 `git init` + **首次提交**（分支 `main`），共 28 个受控文件。`.gitignore` 已排除 `node_modules/`、`dist/`、`.env*`、`public/pyodide/`（14MB 二进制由 `npm install` 自动生成，不进仓库）。**无需上传 node_modules 或 dist。**
+项目 `codemate/` 已完成 `git init` 与多次提交（分支 `main`），源码、README、SUBMISSION.md 及 `docs/` 下的技术文档 PDF 均已纳入版本控制。`.gitignore` 已排除 `node_modules/`、`dist/`、`.env*`、`public/pyodide/`（14MB 二进制由 `npm install` 自动生成，不进仓库）。**无需上传 node_modules 或 dist。**
 
-> ⚠️ 远端 `origin` **尚未配置**，推送这一步必须你自己完成（需要你的 Gitee / GitHub 账号）。
-
-### 2.2 推到远端（在 `codemate/` 目录下执行）
+### 2.2 推送命令（备查，在 `codemate/` 目录下执行）
 
 ```bash
 # 1) 确认没有密钥泄漏（应只输出 .env.example）
 git ls-files | grep -i env
 
-# 2) 填写 README「参赛信息」表格里的【待填写】，再单独提交一次
-git add README.md
-git commit -m "docs: 补充参赛团队信息与仓库地址"
-
-# 3) 在 Gitee / GitHub 新建一个 Public 空仓库（不要勾选初始化 README）
-git remote add origin <你的仓库地址>
+# 2) 关联远端（GitHub 侧须是 Public 空仓库，不要勾选初始化 README）
+git remote add origin https://github.com/lidongxin233-create/codemat.git
 git push -u origin main
 ```
 
-> 若 Gitee / GitHub 需要登录凭据，先配好 SSH Key 或使用 Personal Access Token；推送后用浏览器打开仓库主页，确认 28 个文件、README 正常渲染、仓库为 Public。
+> 推送需要本人 GitHub 账号授权（Git Credential Manager / Personal Access Token / SSH Key）。推送后用浏览器打开仓库主页，确认 README 正常渲染、仓库为 Public、提交历史完整。
 
 ### 2.3 评审拿到仓库后要能复现
 
@@ -110,12 +104,15 @@ git add README.md         && git commit -m "docs: 补充 RAG 对照演示说明"
 
 ## 四、材料 ③：技术文档 PDF
 
-- 源文件：`output/cm-techdoc-20261116/stage3/CodeMate码伴-技术文档.docx`
-- 本环境不直接产 PDF：用 **Word / WPS 打开 → 另存为 / 导出为 PDF**
-- 导出后核对：**总页数 ≤ 30**、目录页码可跳转、表格无截断、中文无乱码
-- 内容已覆盖赛事要求的 7 大章节 + AI 选型理由 / 集成方式 / 优化策略 + 技术创新点与应用创新点
+**PDF 已导出完成，无需再手工另存。** 文件位置：
 
-⚠️ **一处必须改**：文档当前写的是「设计方案稿，Next.js 14」，而实际实现是 Vite + React SPA。请在提交前把文档第 1 章文档状态、3.1 / 3.7 技术选型、6.4 部署方案按实际实现更新（README 的「与《技术文档》设计稿的取舍」表格可直接作为改写依据），否则文档与代码仓库、演示视频会自相矛盾。
+- 仓库内：`docs/CodeMate码伴-技术文档.pdf`（已随代码一并提交，评审可在仓库直接查看）
+- 源文件：`C:\Users\MECHREVO\Desktop\CodeMate码伴-技术文档.docx`（封面已含「三江学院 李东鑫」）
+- 导出方式：Word COM `ExportAsFixedFormat`，保留目录、页眉页码与书签
+- **页数 30 页**：原始排版导出为 32 页，已统一三个分节的页边距压缩到 30 页，符合 ≤30 页要求
+- 官网表单里「上传技术文档」时，选这份 PDF 即可
+
+⚠️ **仍需处理文档口径**：正文仍写「设计方案稿 / Next.js 14」，而实际实现是 Vite + React SPA；另有 2 处 `【待填写】`（第 1 章文档说明、6.4 部署方案）。不改的话，文档与代码仓库、演示视频会自相矛盾，建议按 README「与《技术文档》设计稿的取舍」表格改写第 1 章文档状态、3.1 / 3.7 技术选型、6.4 部署方案，然后重新导出 PDF。
 
 ---
 
@@ -132,14 +129,14 @@ git add README.md         && git commit -m "docs: 补充 RAG 对照演示说明"
 ### 提交前自查
 
 - [ ] 官方群确认了最终截止时间（11/18 还是 11/19）
-- [ ] README 里 6 处 `【待填写】` 全部替换为真实信息
-- [ ] 技术文档封面与第 1 章的团队信息、文档状态已更新
+- [x] README 参赛信息已填：三江学院 / 李东鑫 / 指导老师无 / B 组 / GitHub 仓库地址
+- [ ] 技术文档正文 2 处 `【待填写】` 已替换、封面团队信息已核对
 - [ ] 技术文档口径已从「Next.js 设计方案」改为与实际实现一致
-- [ ] 代码仓库为 Public；`git ls-files | grep -i env` 只出现 `.env.example`
-- [ ] 仓库不含 `node_modules/`、`dist/`、`public/pyodide/`、任何密钥
+- [x] 代码仓库为 Public；`git ls-files | grep -i env` 只出现 `.env.example`
+- [x] 仓库不含 `node_modules/`、`dist/`、`public/pyodide/`、任何密钥
 - [ ] 换一台电脑 `npm install && npm run dev` 能跑通（验证可复现）
 - [ ] 视频 5–8 分钟、MP4、1080p、普通话、含 AI 技术亮点段
-- [ ] PDF ≤ 30 页，目录/表格/字体正常
+- [x] PDF 30 页（已压缩），目录/表格/字体正常
 - [ ] 三份材料的作品名称完全一致：「CodeMate 码伴——不直接给答案的 AI 编程陪练」
 
 ---
