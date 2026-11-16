@@ -1,0 +1,28 @@
+{
+  "name": "codemate",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "CodeMate 码伴 - 不直接给答案的 AI 编程陪练（2026 传智杯 AI WEB 挑战赛参赛作品）",
+  "scripts": {
+    "predev": "node scripts/copy-pyodide.mjs",
+    "dev": "vite --host 0.0.0.0",
+    "prebuild": "node scripts/copy-pyodide.mjs",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "typecheck": "tsc -b --pretty false",
+    "prepare:sandbox": "node scripts/copy-pyodide.mjs"
+  },
+  "dependencies": {
+    "pyodide": "^0.27.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  }
+}

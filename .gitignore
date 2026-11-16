@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+.env.local
+.env.*.local
+*.log
+.DS_Store
+.vite/
+coverage/
+tsconfig.tsbuildinfo
+
+# Pyodide 运行时由 `npm run prepare:sandbox` 从 node_modules 自动复制，
+# 不进代码仓库（14MB 二进制），clone 后 npm install 会自动生成。
+public/pyodide/
